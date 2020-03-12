@@ -19,7 +19,7 @@ const swaggerDefinition = {
         description: 'Endpoints to test the user registration routes',
     },
     host: 'localhost:3000',
-    basePath: '/',
+    basePath: '/v1',
     securityDefinitions: {
         Bearer: {
             type: 'apiKey',
@@ -42,4 +42,5 @@ app.use('/api-docs', swagger_ui_express_1.default.serve, swagger_ui_express_1.de
 app.use(cookie_parser_1.default());
 app.use(cors_1.default());
 app.use(body_parser_1.json());
+// app.use('/api/v1')
 app.use('/user', user_1.userRouter);

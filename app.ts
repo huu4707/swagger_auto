@@ -16,7 +16,7 @@ const swaggerDefinition = {
         description: 'Endpoints to test the user registration routes',
     },
     host: 'localhost:3000',
-    basePath: '/',
+    basePath: '/v1',
     securityDefinitions: {
         Bearer: {
             type: 'apiKey',
@@ -37,10 +37,12 @@ app.get('/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     res.send(swaggerSpec);
 })
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(cookieParser());
 app.use(cors());
 app.use(json())
+// app.use('/api/v1')
 app.use('/user', userRouter);
 
 
